@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "github.com/victordinh/gokit-grpc/pb";
+
+service VictorService {
+    rpc Add(MathRequest) returns (MathResponse) {}
+    rpc ValidateUser(ValidateUserRequest) returns (ValidateUserResponse) {}
+    rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse) {}
+}
+
+message MathRequest {
+    float numA = 1;
+    float numB = 2;
+}
+
+message MathResponse {
+    float result = 1;
+}
+
+message ValidateUserRequest {
+	string email = 1;
+    string password = 2;
+}
+
+message ValidateUserResponse {
+	string token = 1;
+}
+
+message ValidateTokenRequest {
+	string token = 1;
+}
+
+message ValidateTokenResponse {
+	string email = 1;
+}
